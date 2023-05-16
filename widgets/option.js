@@ -7,7 +7,7 @@ class MenuOption extends TotalProMenuWidget {
 
     constructor(args) {
         super(args);
-        const { icon, text, shortcut, disabled, onChange = null } = args;
+        const { icon = null, text = null, shortcut, disabled, onChange = null } = args;
         this.icon = icon;
         this.text = text;
         this.shortcut = shortcut;
@@ -42,7 +42,10 @@ class MenuOption extends TotalProMenuWidget {
     }
 
     render() {
-        this.element.innerHTML = `<div class="menu-option-icon">${this.icon}</div><p class="menu-option-name">${this.text}</p><div style="flex: 1;"></div><p class="menu-option-shortcut">${this.shortcutText || ''}</p>`;
+        let html = '';
+        if (this.icon) html += `<div class="menu-option-icon">${this.icon}</div>`;
+        if (this.text) html += `<p class="menu-option-name">${this.text}</p><div style="flex: 1;"></div><p class="menu-option-shortcut">${this.shortcutText || ''}</p>`;
+        this.element.innerHTML = html;
     }
 
 }
