@@ -1,0 +1,139 @@
+/* Widget Select */
+
+#menu .menu-select {
+    width: calc(100% - 30px);
+    margin: 5px 15px;
+}
+
+.menu-select {
+    position: relative;
+    height: 30px;
+    border-radius: 50px;
+    border: none;
+    color: var(--font-color-2);
+    background: #e3e6eb;
+}
+
+#menu .menu-select-current {
+    margin: 0 4px 0 11px;
+}
+
+.menu-select-current {
+    height: 100%;
+    border: none;
+    background: transparent;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 12px;
+}
+
+.menu-select-current:hover {
+    cursor: context-menu;
+}
+
+.menu-select-cloud.top:before {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #e3e6eb;
+    content: '';
+    left: calc(50% - 8px);
+    bottom: -8px;
+    position: absolute;
+}
+
+.menu-select-cloud.bottom:before {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #e3e6eb;
+    content: '';
+    left: calc(50% - 8px);
+    top: -8px;
+    position: absolute;
+}
+
+.menu-select-cloud {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: calc(100% - 20px);
+    background: #e3e6eb;
+    margin: 8px 10px 0px 10px;
+    z-index: var(--z-menu-widget);
+    box-shadow: 0 0 16px 0 rgb(0 0 0 / 10%);
+    border-radius: 4px;
+}
+
+.menu-select-option {
+    height: 30px;
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.menu-select-option:last-child {
+    border-radius: 4px 4px 0 0;
+}
+
+.menu-select-option:hover {
+    cursor: pointer;
+    background-color: rgb(65, 192, 240);
+}
+
+.menu-select-option .icon {
+    margin-right: 7px;
+}
+
+.menu-select-option .icon i {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.menu-select-option .text:focus {
+    outline: none;
+    border-bottom: black dashed 1px;
+}
+
+.menu-select-option .checkbox {
+    margin-left: auto;
+    font-size: 25px;
+}
+
+.menu-select-toolbar {
+    height: 30px;
+    padding: 0px 9px;
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    background-color: var(--paper-2);
+    border-radius: 0 0 4px 4px;
+    align-items: center;
+}
+
+.menu-select-toolbar-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-color-1);
+    font-size: 18px !important;
+    border-radius: 4px;
+}
+
+.menu-select-toolbar-icon:hover {
+    cursor: pointer;
+    color: rgb(65, 192, 240);
+    background: white;
+}

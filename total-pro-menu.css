@@ -1,0 +1,45 @@
+/* Main menu */
+
+#menu {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    width: 500px;
+    height: 600px;
+    position: absolute;
+    box-shadow: 0 0 99px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    z-index: var(--z-menu);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background-color: rgba(250, 255, 255, 0.8);
+    visibility: hidden;
+}
+
+/* Left Panel */
+
+#menu-left {
+    width: 50%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--menu-background-color);
+    overflow: auto;
+    border-radius: 20px 0 0 20px;
+}
+
+/* Right Panel */
+
+#menu-right {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+/* Generic icons */
+
+.menu-icon-square {
+    width: 14px;
+    height: 14px;
+    background-color: black;
+    border-radius: 2px;
+}

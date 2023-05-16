@@ -1,0 +1,14 @@
+/* Menu Widget Group */
+
+.menu-group {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.menu-group > p {
+    margin-left: 15px;
+    color: var(--menu-key-color-head);
+    font-weight: 500;
+    font-size: 0.85em;
+    text-transform: uppercase;
+}

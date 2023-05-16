@@ -1,0 +1,10 @@
+/* Menu Section */
+
+.menu_section {
+    width: 100%;
+    overflow: hidden auto;
+}
+
+.menu_section_wrapper {
+    display: flex;
+}

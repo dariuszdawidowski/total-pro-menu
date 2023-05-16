@@ -1,0 +1,12 @@
+/* Menu Separator hr */
+
+.menu-separator {
+    width: calc(100% - 30px);
+    height: 2px;
+    margin: 10px 0;
+    background: var(--menu-separator-color);
+}
+
+.submenu-panel .menu-separator {
+    margin-left: 15px;
+}

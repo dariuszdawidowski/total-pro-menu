@@ -1,0 +1,49 @@
+/* Widget Switch */
+
+.menu-switch {
+    width: calc(100% - 30px);
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-switch > p {
+    margin: 0;
+}
+
+.menu-switch > p:hover {
+    cursor: pointer;
+}
+
+.menu-switch-button {
+    height: 30px;
+    width: 50px;
+    border-radius: 30px;
+    position: relative;
+    background: #DBDBDB;
+    transition: 200ms ease-in-out;
+}
+
+.menu-switch-button:hover {
+    cursor: pointer;
+}
+
+.menu-switch-button.selected {
+    background: #6CDA5D;
+}
+
+.menu-switch-dot {
+    width: 26px;
+    height: 26px;
+    left: 2px;
+    top: 2px;
+    border-radius: 30px;
+    position: absolute;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+    background: #fff;
+    transition: 200ms ease-in-out;
+}
+
+.menu-switch-button.selected > .menu-switch-dot {
+    transform: translateX(20px);
+}
