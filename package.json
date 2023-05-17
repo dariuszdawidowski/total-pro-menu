@@ -1,7 +1,6 @@
 {
 	"name": "total-pro-menu",
 	"version": "0.8.0",
-	"unpkg": ["dist/total-pro-menu.js", "dist/total-pro-menu.css"],
 	"description": "JavaScript/ES8 menu library.",
 	"license": "MIT",
 	"scripts": {
