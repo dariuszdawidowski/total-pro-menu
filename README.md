@@ -3,10 +3,10 @@ Total Pro Menu
 </h1>
 <p align="center">
 JavaScript/ES8 menu library.
-<p>
+</p>
 <p align="center">
 v0.8.1
-<p>
+</p>
 
 [![build](https://github.com/dariuszdawidowski/total-pro-menu/actions/workflows/build.yml/badge.svg)](https://github.com/dariuszdawidowski/total-pro-menu/actions/workflows/build.yml)
 [![npm](https://img.shields.io/npm/v/total-pro-menu)](https://www.npmjs.com/package/total-pro-menu)
@@ -27,4 +27,13 @@ JavaScript/ES8 menu library.
 npm install
 npm run build
 ```
-Note: This is browser-centric vanilla JavaScript library, npm is only used to minify and bundle files into one.
+Note: This is browser-centric vanilla JavaScript library, npm is only used to minify and bundle files.
+
+# Load from CDN
+
+https://unpkg.com/total-pro-menu@latest/dist/total-pro-menu.js
+https://unpkg.com/total-pro-menu@latest/dist/total-pro-menu.css
+
+# Credits
+
+Dariusz Dawidowski
