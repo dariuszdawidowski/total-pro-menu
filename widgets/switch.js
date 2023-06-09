@@ -3,7 +3,7 @@
  * (c) 2020-2023 Dariusz Dawidowski, All Rights Reserved.
  */
 
-class MenuSwitch extends TotalProMenuWidget {
+class TotalProMenuSwitch extends TotalProMenuWidget {
 
     constructor(params) {
         // Parameters

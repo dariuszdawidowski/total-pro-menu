@@ -20,8 +20,8 @@ class TotalProMenu {
 
         // Panels
         this.panel = {
-            left: new MenuPanel({ id: 'menu-left' }),
-            right: new MenuPanel({ id: 'menu-right' })
+            left: new TotalProMenuPanel({ id: 'menu-left' }),
+            right: new TotalProMenuPanel({ id: 'menu-right' })
         };
         this.element.appendChild(this.panel.left.element);
         this.element.appendChild(this.panel.right.element);

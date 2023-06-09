@@ -5,7 +5,7 @@ Total Pro Menu
 JavaScript/ES8 menu library.
 </p>
 <p align="center">
-v0.8.1
+v0.8.2
 </p>
 
 [![build](https://github.com/dariuszdawidowski/total-pro-menu/actions/workflows/build.yml/badge.svg)](https://github.com/dariuszdawidowski/total-pro-menu/actions/workflows/build.yml)

@@ -3,7 +3,7 @@
  * (c) 2020-2023 Dariusz Dawidowski, All Rights Reserved.
  */
 
-class MenuSeparator extends TotalProMenuWidget {
+class TotalProMenuSeparator extends TotalProMenuWidget {
 
     constructor(params) {
         super(params);

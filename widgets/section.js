@@ -3,7 +3,7 @@
  * (c) 2020-2023 Dariusz Dawidowski, All Rights Reserved.
  */
 
-class MenuSection extends TotalProMenuWidget {
+class TotalProMenuSection extends TotalProMenuWidget {
 
     constructor(params) {
         super(params);
@@ -116,7 +116,7 @@ class MenuSection extends TotalProMenuWidget {
  * Section page widget
  */
 
-class MenuSectionPage extends TotalProMenuWidget {
+class TotalProMenuSectionPage extends TotalProMenuWidget {
 
     constructor(params) {
         super(params);
