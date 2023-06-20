@@ -13,7 +13,7 @@ class TotalProMenuInput extends TotalProMenuWidget {
         this.value = (value !== undefined) ? value : null;
         this.filepicker = filepicker || false;
         this.onFilePick = onFilePick || null;
-        this.onBlur = onChange || null;
+        this.onChange = onChange || null;
 
         // Controls
         this.control = null;
@@ -44,8 +44,8 @@ class TotalProMenuInput extends TotalProMenuWidget {
         if (this.value !== null && this.value !== '') this.set(this.value);
 
         // Blur
-        if (this.onBlur) {
-            this.control.addEventListener('blur', this.onBlur);
+        if (this.onChange) {
+            this.control.addEventListener('blur', event => this.onChange(event.target.value));
         }
 
         // Attach and return element
