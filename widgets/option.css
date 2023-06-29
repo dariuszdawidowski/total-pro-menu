@@ -39,6 +39,11 @@
     background: #818181;
 }
 
+.submenu-panel .menu-option-icon span.mdi {
+    font-size: 18px;
+    line-height: 20px;
+}
+
 .menu-option > p {
     margin: 0;
     text-overflow: ellipsis;
