@@ -3,13 +3,14 @@
  * (c) 2020-2023 Dariusz Dawidowski, All Rights Reserved.
  */
 
-/**
- * Main menu
- */
-
 class TotalProMenu {
 
-    constructor(params) {
+    /**
+     * Constructor
+     * @param args.container - container to attach to
+     */
+
+    constructor(args) {
 
         // Initial click coordinates
         this.click = {x: 0, y: 0};
@@ -23,9 +24,11 @@ class TotalProMenu {
             left: new TotalProMenuPanel({ id: 'menu-left' }),
             right: new TotalProMenuPanel({ id: 'menu-right' })
         };
-        this.element.appendChild(this.panel.left.element);
-        this.element.appendChild(this.panel.right.element);
-        if ('container' in params) this.append(params.container);
+        this.element.append(this.panel.left.element);
+        this.element.append(this.panel.right.element);
+
+        // Attach to parent container
+        this.append(args.container);
 
         // Assign events callbacks
         this.outclickEvent = this.outclick.bind(this);
@@ -34,20 +37,15 @@ class TotalProMenu {
 
     /**
      * Show menu at position
-     * params:
-     * left - x coordinate of click
-     * top - y coordinate of click
+     * @param args.left: x coordinate of click
+     * @param args.top: y coordinate of click
      */
 
-    show(params) {
-
-        // Bind events
-        document.body.addEventListener('pointerup', this.outclickEvent);
-        this.element.addEventListener('wheel', this.scrollEvent);
+    show(args) {
 
         // Align click to menu size
-        let left = this.click.x = params.left;
-        let top = this.click.y = params.top;
+        let left = this.click.x = args.left;
+        let top = this.click.y = args.top;
         if (window.scrollX + window.innerWidth - left - this.width() < 0) left = window.scrollX + window.innerWidth - this.width();
         if (window.scrollY + window.innerHeight - top - this.height() < 0) top = window.scrollY + window.innerHeight - this.height();
 
@@ -55,6 +53,10 @@ class TotalProMenu {
         this.element.style.left = left + 'px';
         this.element.style.top = top + 'px';
         this.element.style.visibility = 'visible';
+
+        // Bind events
+        document.body.addEventListener('pointerdown', this.outclickEvent);
+        this.element.addEventListener('wheel', this.scrollEvent);
 
     }
 
@@ -68,17 +70,18 @@ class TotalProMenu {
         this.element.style.visibility = 'hidden';
 
         // Unbind events
-        document.body.removeEventListener('pointerup', this.outclickEvent);
+        document.body.removeEventListener('pointerdown', this.outclickEvent);
         this.element.removeEventListener('wheel', this.scrollEvent);
 
     }
 
     /**
      * Append menu to html DOM
+     * @param element: attach to this element
      */
 
     append(element) {
-        (element || document.getElementsByTagName('body')[0]).appendChild(this.element);
+        (element || document.getElementsByTagName('body')[0]).append(this.element);
     }
 
     /**
@@ -91,9 +94,9 @@ class TotalProMenu {
 
     /**
      * Return position
-     * kind:
-     * first click - click where menu was activated
-     * menu corner - left corner of menu
+     * @param kind:
+     *        'first click': click where menu was activated
+     *        'menu corner': left corner of menu
      */
 
     position(kind = 'menu corner') {
@@ -118,27 +121,17 @@ class TotalProMenu {
     }
 
     /**
-     * Identify DOM target: is it part of menu?
+     * Callback: mouse clicked inside or outside of menu
      */
 
-    identify(target) {
-        const menu = document.getElementById('menu');
-        if (menu) return menu.contains(target);
-        return false;
-    }
-
-    /**
-     * Mouse clicked outside of menu
-     */
-
-    outclick() {
-        if (this.visible() && this.identify(event.target) == false) {
+    outclick(event) {
+        if (this.visible() && !this.element.contains(event.target)) {
             this.hide();
         }
     }
 
     /**
-     * Mouse scroll
+     * Callback: mouse scroll
      */
 
     scroll(event) {
