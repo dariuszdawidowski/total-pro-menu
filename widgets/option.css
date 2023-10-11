@@ -27,11 +27,12 @@
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-}
-
-.menu-option-icon {
     color: #444;
     background: #fff;
+}
+
+.menu-option-icon .mdi {
+    font-size: 20px;
 }
 
 .submenu-panel .menu-option-icon {
