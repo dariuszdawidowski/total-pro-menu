@@ -35,10 +35,18 @@ class TotalProMenuOption extends TotalProMenuWidget {
         return this;
     }
 
+    getName() {
+        return this.text;
+    }
+
     setIcon(name) {
         this.icon = name;
         this.render();
         return this;
+    }
+
+    getIcon() {
+        return this.icon;
     }
 
     render() {
