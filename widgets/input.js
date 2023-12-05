@@ -60,4 +60,23 @@ class TotalProMenuInput extends TotalProMenuWidget {
         return this.control ? this.control.value: '';
     }
 
+    /**
+     * Enable this widget and childrens
+     */
+
+    enable() {
+        super.enable();
+        this.element.firstElementChild.removeAttribute('disabled');
+        return this;
+    }
+
+    /**
+     * Disable this widget and childrens
+     */
+
+    disable() {
+        super.disable();
+        this.element.firstElementChild.setAttribute('disabled', '');
+    }
+
 }

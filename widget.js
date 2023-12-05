@@ -46,6 +46,7 @@ class TotalProMenuWidget {
         // Enable itself
         this.element.classList.remove('disabled');
         this.disabled = false;
+
         return this;
     }
 
