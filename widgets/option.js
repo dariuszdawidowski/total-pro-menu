@@ -13,13 +13,27 @@ class TotalProMenuOption extends TotalProMenuWidget {
         this.shortcut = shortcut;
         this.disabled = disabled;
         this.callback = onChange;
-        if (this.shortcut != undefined) this.shortcutText = this.shortcut.map(k => {
-            if (k == 16) return 'Shift';
-            if (k == 17) return 'Ctrl';
-            if (k == 18) return 'Alt';
-            if (k == 91 || k == 92) return 'Meta';
-            return String.fromCharCode(k);
-        }).join(' + ');
+        if (this.shortcut != undefined) {
+            // macOS
+            if (navigator.platform.toUpperCase().indexOf('MAC') >= 0) {
+                this.shortcutText = this.shortcut.map(k => {
+                    if (k == 16) return '⇧'; // Shift
+                    if (k == 17) return '⌘'; // Cmd (replace Ctrl)
+                    if (k == 18) return '⌥'; // Option (Alt)
+                    return String.fromCharCode(k);
+                }).join(' ');
+            }
+            // PC
+            else {
+                this.shortcutText = this.shortcut.map(k => {
+                    if (k == 16) return 'Shift';
+                    if (k == 17) return 'Ctrl';
+                    if (k == 18) return 'Alt';
+                    if (k == 91 || k == 92) return 'Meta';
+                    return String.fromCharCode(k);
+                }).join(' + ');
+            }
+        }
 
         this.element.classList.add('menu-option');
         this.element.classList.toggle('disabled', this.disabled == true);
