@@ -94,7 +94,7 @@ class TotalProSubMenu extends TotalProMenuWidget {
         this.chevron.style.display = 'none';
     }
 
-    // Add widget
+    // Chevron show/hide depend on scroll
 
     chevronAppear(event = null) {
         // Content smaller than height
@@ -112,7 +112,6 @@ class TotalProSubMenu extends TotalProMenuWidget {
                 this.chevron.style.display = 'block';
             }
         }
-        console.log('scroll', this.panel.scrollTop + this.panel.offsetHeight, this.panel.scrollHeight)
     }
 
 }
