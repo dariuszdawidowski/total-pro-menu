@@ -67,3 +67,13 @@
     background: var(--menu-key-color-hi);
     cursor: pointer;
 }
+
+/* Chevron for submenu */
+
+.submenu .chevron {
+    position: absolute;
+    left: calc(75% - 11px);
+    bottom: -5px;
+    color: #333;
+    font-size: 22px;
+}
