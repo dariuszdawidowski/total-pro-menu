@@ -39,11 +39,13 @@
     flex-direction: column;
     position: absolute;
     left: 50%;
-    top: 0;
+    top: 9px;
     width: calc(50% - 9px);
-    height: calc(100% - 20px);
+    height: calc(100% - 18px);
     overflow-y: scroll;
     margin: 0;
+    scrollbar-color: var(--menu-key-color) transparent; /* Firefox */
+    scrollbar-width: thin; /* Firefox */
 }
 
 /* Submenu right panel scrollbar */

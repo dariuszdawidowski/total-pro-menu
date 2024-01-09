@@ -12,3 +12,7 @@
     font-size: 0.85em;
     text-transform: uppercase;
 }
+
+.menu-group:first-child > p {
+    margin-top: 0px;
+}
