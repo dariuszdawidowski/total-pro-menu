@@ -30,6 +30,8 @@
     flex-direction: row;
     align-items: center;
     font-size: 12px;
+    overflow: clip;
+    white-space: nowrap;
 }
 
 .menu-select-current:hover {
