@@ -82,6 +82,8 @@
     align-items: center;
     font-size: 12px;
     border-radius: 4px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .menu-select-option:last-child {
