@@ -1,13 +1,13 @@
 /**
  * Total Pro Menu Widget Option
- * (c) 2020-2023 Dariusz Dawidowski, All Rights Reserved.
+ * (c) 2020-2024 Dariusz Dawidowski, All Rights Reserved.
  */
 
 class TotalProMenuOption extends TotalProMenuWidget {
 
     constructor(args) {
         super(args);
-        const { icon = null, text = null, shortcut, disabled, onChange = null } = args;
+        const { icon = null, text = null, value = null, shortcut, disabled, onChange = null } = args;
         this.icon = icon;
         this.text = text;
         this.shortcut = shortcut;
@@ -39,7 +39,7 @@ class TotalProMenuOption extends TotalProMenuWidget {
         this.element.classList.toggle('disabled', this.disabled == true);
         this.render();
         this.element.addEventListener('click', () => {
-            if (this.callback && !this.disabled) this.callback();
+            if (this.callback && !this.disabled) this.callback(value);
         });
     }
 
