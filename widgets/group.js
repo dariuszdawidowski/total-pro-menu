@@ -1,6 +1,6 @@
 /**
  * Total Pro Menu widget Group
- * (c) 2020-2023 Dariusz Dawidowski, All Rights Reserved.
+ * (c) 2020-2024 Dariusz Dawidowski, All Rights Reserved.
  */
 
 class TotalProMenuGroup extends TotalProMenuWidget {
@@ -19,7 +19,7 @@ class TotalProMenuGroup extends TotalProMenuWidget {
         this.control.innerText = this.text;
         this.element.appendChild(this.control);
 
-        for (const widget of this.widgets || []) this.element.appendChild(widget.element);
+        for (const widget of this.widgets || []) if (widget) this.element.appendChild(widget.element);
     }
 
     set(text) {

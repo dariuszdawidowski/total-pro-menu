@@ -1,6 +1,6 @@
 /**
  * Total Pro Menu Widget base class
- * (c) 2020-2023 Dariusz Dawidowski, All Rights Reserved.
+ * (c) 2020-2024 Dariusz Dawidowski, All Rights Reserved.
  */
 
 /**
@@ -41,7 +41,7 @@ class TotalProMenuWidget {
     enable() {
 
         // Enable children widgets
-        for (const widget of this.widgets || []) widget.enable();
+        for (const widget of this.widgets || []) widget?.enable();
 
         // Enable itself
         this.element.classList.remove('disabled');
@@ -57,7 +57,7 @@ class TotalProMenuWidget {
     disable() {
 
         // Disable children widgets
-        for (const widget of this.widgets || []) widget.disable();
+        for (const widget of this.widgets || []) widget?.disable();
 
         // Disable itself
         this.element.classList.add('disabled');
@@ -81,7 +81,7 @@ class TotalProMenuWidget {
     deselect() {
 
         // Deselect children widgets
-        for (const widget of this.widgets || []) widget.deselect();
+        for (const widget of this.widgets || []) widget?.deselect();
 
         // Deselect itself
         this.element.classList.remove('selected');
@@ -138,7 +138,7 @@ class TotalProMenuWidget {
     find(id) {
         if (this.id == id) return this;
         for (const widget of this.widgets || []) {
-            const found = widget.find(id); 
+            const found = widget?.find(id); 
             if (found) return found;
         }
         return null;
