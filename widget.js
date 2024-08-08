@@ -21,7 +21,7 @@ class TotalProMenuWidget {
         this.element = document.createElement('div');
 
         // ID
-        this.id = 'id' in params ? params.id : 'text' in params ? 'total-pro-menu-' + params.text.slug() : 'total-pro-menu-' + crypto.randomUUID();
+        this.id = 'id' in params ? params.id : ('text' in params) && (typeof(params.text) == 'string') ? `total-pro-menu-${params.text.slug()}` : `total-pro-menu-${crypto.randomUUID()}`;
         this.element.id = this.id;
 
         // Children Widgets
@@ -158,6 +158,14 @@ class TotalProMenuWidget {
 
     tooltip(text) {
         this.element.title = text;
+    }
+
+    /**
+     * Update for dynamic widgets
+     */
+
+    update() {
+        /* OVERLOAD */
     }
 
 }

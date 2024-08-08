@@ -37,7 +37,7 @@ class TotalProMenuOption extends TotalProMenuWidget {
 
         this.element.classList.add('menu-option');
         this.element.classList.toggle('disabled', this.disabled == true);
-        this.render();
+        this.update();
         this.element.addEventListener('click', () => {
             if (this.callback && !this.disabled) this.callback(value);
         });
@@ -45,7 +45,7 @@ class TotalProMenuOption extends TotalProMenuWidget {
 
     setName(text) {
         this.text = text;
-        this.render();
+        this.update();
         return this;
     }
 
@@ -55,7 +55,7 @@ class TotalProMenuOption extends TotalProMenuWidget {
 
     setIcon(name) {
         this.icon = name;
-        this.render();
+        this.update();
         return this;
     }
 
@@ -63,10 +63,10 @@ class TotalProMenuOption extends TotalProMenuWidget {
         return this.icon;
     }
 
-    render() {
+    update() {
         let html = '';
-        if (this.icon) html += `<div class="menu-option-icon">${this.icon}</div>`;
-        if (this.text) html += `<p class="menu-option-name">${this.text}</p><div style="flex: 1;"></div><p class="menu-option-shortcut">${this.shortcutText || ''}</p>`;
+        if (this.icon) html += `<div class="menu-option-icon">${typeof(this.icon) == 'function' ? this.icon() : this.icon}</div>`;
+        if (this.text) html += `<p class="menu-option-name">${typeof(this.text) == 'function' ? this.text() : this.text}</p><div style="flex: 1;"></div><p class="menu-option-shortcut">${this.shortcutText || ''}</p>`;
         this.element.innerHTML = html;
     }
 

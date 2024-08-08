@@ -1,6 +1,6 @@
 /**
  * Total Pro Menu
- * (c) 2020-2023 Dariusz Dawidowski, All Rights Reserved.
+ * (c) 2020-2024 Dariusz Dawidowski, All Rights Reserved.
  */
 
 class TotalProMenu {
@@ -58,6 +58,8 @@ class TotalProMenu {
         document.body.addEventListener('pointerdown', this.outclickEvent);
         this.element.addEventListener('wheel', this.scrollEvent);
 
+        // Update all widgets
+        this.update(this.panel.left.widgets.concat(this.panel.right.widgets));
     }
 
     /**
@@ -136,6 +138,17 @@ class TotalProMenu {
 
     scroll(event) {
         this.element.dispatchEvent(new CustomEvent('scroll', { detail: event.wheelDeltaY }));
+    }
+
+    /**
+     * Update for dynamic widgets
+     */
+
+    update(widgets) {
+        widgets.forEach(widget => {
+            widget.update();
+            this.update(widget.widgets)
+        });
     }
 
 }
