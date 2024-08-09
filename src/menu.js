@@ -146,8 +146,10 @@ class TotalProMenu {
 
     update(widgets) {
         widgets.forEach(widget => {
-            widget.update();
-            this.update(widget.widgets)
+            if (widget) {
+                widget.update();
+                this.update(widget.widgets);
+            }
         });
     }
 
