@@ -1,6 +1,6 @@
 /**
  * Total Pro Menu Widget Select
- * (c) 2020-2023 Dariusz Dawidowski, All Rights Reserved.
+ * (c) 2020-2024 Dariusz Dawidowski, All Rights Reserved.
  */
 
 class TotalProMenuSelect extends TotalProMenuWidget {
@@ -68,7 +68,7 @@ class TotalProMenuSelect extends TotalProMenuWidget {
         // Build options: {'option value': {element: <whole DOM>, icon: <DOM>, text: <DOM>, checkbox: <DOM>, selected: false}, ...}
         this.options = {};
         for (const [value, option] of Object.entries(options)) {
-            this.addOption({value: value, text: option.text, icon: option.icon});
+            this.addOption({value: value, text: option.text, icon: 'icon' in option ? option.icon : ''});
         }
 
         // Toolbar background
