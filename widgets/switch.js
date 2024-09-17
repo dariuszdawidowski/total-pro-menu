@@ -1,6 +1,6 @@
 /**
  * Total Pro Menu widget Switch
- * (c) 2020-2023 Dariusz Dawidowski, All Rights Reserved.
+ * (c) 2020-2024 Dariusz Dawidowski, All Rights Reserved.
  */
 
 class TotalProMenuSwitch extends TotalProMenuWidget {
@@ -8,10 +8,10 @@ class TotalProMenuSwitch extends TotalProMenuWidget {
     constructor(params) {
         // Parameters
         super(params);
-        const { text, value, onChange } = params;
-        this.text = text || '';
-        this.callback = onChange || null;
-        this.value = value || false;
+        const { text = '', value = false, onChange = null, direction = 'row'} = params;
+        this.text = text;
+        this.callback = onChange;
+        this.value = value;
 
         // Controls
         this.dot = document.createElement('div');
@@ -22,9 +22,14 @@ class TotalProMenuSwitch extends TotalProMenuWidget {
         this.switch.classList.toggle('selected', this.value == true);
         this.switch.appendChild(this.dot);
 
-        // this.element = document.createElement('div');
         this.element.classList.add('menu-switch')
-        this.element.innerHTML = `<p>${this.text}</p><div style="flex: 1"></div>`;
+        if (direction == 'row') {
+            this.element.innerHTML = `<p>${this.text}</p><div style="flex: 1"></div>`;
+        }
+        else if (direction == 'column') {
+            this.element.style.flexDirection = 'column';
+            this.element.innerHTML = `<p style="margin-bottom: 12px">${this.text}</p></div>`;
+        }
         this.element.appendChild(this.switch);
         this.element.addEventListener('click', this.onClick.bind(this));
     }
@@ -42,9 +47,6 @@ class TotalProMenuSwitch extends TotalProMenuWidget {
     onClick(event) {
         if (this.value) this.deselect(); else this.select();
         if (this.callback) this.callback(this.value);
-        /*if (this.callback == undefined) return this.value ? this.deselect() : this.select();
-        if (this.value && this.callback(!this.value) != false) return this.deselect();
-        if (!this.value && this.callback(!this.value) != false) return this.select();*/
     }
 
     set(state) {
