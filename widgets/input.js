@@ -1,6 +1,6 @@
 /**
  * Total Pro Menu widget Input
- * (c) 2020-2023 Dariusz Dawidowski, All Rights Reserved.
+ * (c) 2020-2026 Dariusz Dawidowski, All Rights Reserved.
  */
 
 class TotalProMenuInput extends TotalProMenuWidget {
@@ -8,9 +8,10 @@ class TotalProMenuInput extends TotalProMenuWidget {
     constructor(params) {
         // Parameters
         super(params);
-        const { placeholder, value, filepicker, onFilePick, onChange } = params;
+        const { placeholder, value, type = 'text', filepicker, onFilePick, onChange } = params;
         this.placeholder = placeholder || null;
         this.value = (value !== undefined) ? value : null;
+        this.type = type || 'text';
         this.filepicker = filepicker || false;
         this.onFilePick = onFilePick || null;
         this.onChange = onChange || null;
@@ -36,6 +37,7 @@ class TotalProMenuInput extends TotalProMenuWidget {
 
         // Input
         this.control = document.createElement('input');
+        this.control.type = this.type;
         this.control.classList.add('menu-input-control');
         if (this.placeholder) {
             this.control.placeholder = '-- ' + this.placeholder + ' --';
